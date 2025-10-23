@@ -461,9 +461,9 @@ export default function Home() {
 
             {/* Separador sutil entre proyectos */}
             <div className="flex items-center gap-4 my-16">
-              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
+              <div className="flex-1 h-px bg-linear-to-r from-transparent via-border to-transparent"></div>
               <div className="w-2 h-2 rounded-full bg-accent/50"></div>
-              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
+              <div className="flex-1 h-px bg-linear-to-r from-transparent via-border to-transparent"></div>
             </div>
 
             {/* Proyecto 2 - Gestor Visión Allende (Layout Izquierda) */}
@@ -524,9 +524,9 @@ export default function Home() {
 
             {/* Separador sutil entre proyectos */}
             <div className="flex items-center gap-4 my-16">
-              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
+              <div className="flex-1 h-px bg-linear-to-r from-transparent via-border to-transparent"></div>
               <div className="w-2 h-2 rounded-full bg-accent/50"></div>
-              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
+              <div className="flex-1 h-px bg-linear-to-r from-transparent via-border to-transparent"></div>
             </div>
 
             {/* Proyecto 3 - Arcana */}
@@ -590,9 +590,9 @@ export default function Home() {
 
             {/* Separador sutil entre proyectos */}
             <div className="flex items-center gap-4 my-16">
-              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
+              <div className="flex-1 h-px bg-linear-to-r from-transparent via-border to-transparent"></div>
               <div className="w-2 h-2 rounded-full bg-accent/50"></div>
-              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
+              <div className="flex-1 h-px bg-linear-to-r from-transparent via-border to-transparent"></div>
             </div>
 
             {/* Proyecto 4 - Tipsterzone */}
