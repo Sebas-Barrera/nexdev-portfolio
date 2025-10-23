@@ -1098,6 +1098,8 @@ function ContactForm() {
 // Componente de Carrusel para Mockups Móviles
 function MobileCarousel({ images }: { images: string[] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % images.length);
@@ -1111,6 +1113,34 @@ function MobileCarousel({ images }: { images: string[] }) {
     setCurrentIndex(index);
   };
 
+  // Detectar swipe táctil
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      nextSlide();
+    }
+    if (isRightSwipe) {
+      prevSlide();
+    }
+
+    // Reset
+    setTouchStart(0);
+    setTouchEnd(0);
+  };
+
   return (
     <div className="relative group">
       <div className="absolute -inset-4 bg-linear-to-r from-accent/20 to-accent-light/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-40 transition-all duration-500"></div>
@@ -1119,7 +1149,12 @@ function MobileCarousel({ images }: { images: string[] }) {
         <div className="mx-auto max-w-[250px]">
           <div className="relative overflow-hidden shadow-2xl rounded-2xl" style={{ aspectRatio: '9.5/19.5' }}>
             {/* Carrusel de imágenes */}
-            <div className="relative w-full h-full overflow-hidden">
+            <div
+              className="relative w-full h-full overflow-hidden"
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
               <div
                 className="flex transition-transform duration-500 ease-out h-full"
                 style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -1186,6 +1221,8 @@ function MobileCarousel({ images }: { images: string[] }) {
 // Componente de Carrusel para Mockups Web
 function WebCarousel({ images }: { images: string[] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % images.length);
@@ -1197,6 +1234,34 @@ function WebCarousel({ images }: { images: string[] }) {
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
+  };
+
+  // Detectar swipe táctil
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      nextSlide();
+    }
+    if (isRightSwipe) {
+      prevSlide();
+    }
+
+    // Reset
+    setTouchStart(0);
+    setTouchEnd(0);
   };
 
   return (
@@ -1216,7 +1281,12 @@ function WebCarousel({ images }: { images: string[] }) {
           </div>
 
           {/* Screen con carrusel */}
-          <div className="aspect-video relative overflow-hidden">
+          <div
+            className="aspect-video relative overflow-hidden"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
             <div
               className="flex transition-transform duration-500 ease-out h-full"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
