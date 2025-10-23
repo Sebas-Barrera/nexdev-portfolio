@@ -42,14 +42,14 @@ export default function Home() {
 
       // El hero se queda fijo cuando empezamos a hacer scroll
       // y se mantiene hasta que termine el espacio del container (200vh)
-      if (scrollY > 0 && scrollY < heroHeight * 2) {
+      if (scrollY > 10 && scrollY < heroHeight * 2 - 10) {
         setHeroFixed(true);
       } else {
         setHeroFixed(false);
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll(); // Ejecutar al montar
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
