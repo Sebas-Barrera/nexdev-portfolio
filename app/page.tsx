@@ -7,6 +7,8 @@ import emailjs from '@emailjs/browser';
 export default function Home() {
   // Estado para sticky hero
   const [heroFixed, setHeroFixed] = useState(false);
+  // Estado para menú móvil
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Intersection Observer para animaciones al hacer scroll
   useEffect(() => {
@@ -121,6 +123,8 @@ export default function Home() {
                 <span className="text-xl font-bold tracking-tight text-text-primary">Dev</span>
               </div>
             </div>
+
+            {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-8">
               <a href="#" className="text-sm text-text-secondary hover:text-accent transition-colors">Inicio</a>
               <a href="#services" className="text-sm text-text-secondary hover:text-accent transition-colors">Servicios</a>
@@ -131,6 +135,67 @@ export default function Home() {
               </a>
               <a href="#contact" className="text-sm text-text-secondary hover:text-accent transition-colors">Contacto</a>
             </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 rounded-lg hover:bg-surface transition-colors"
+              aria-label="Toggle menu"
+            >
+              <div className="w-6 h-5 flex flex-col justify-between">
+                <span className={`block h-0.5 w-full bg-text-primary transition-all duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+                <span className={`block h-0.5 w-full bg-text-primary transition-all duration-300 ${mobileMenuOpen ? 'opacity-0' : ''}`}></span>
+                <span className={`block h-0.5 w-full bg-text-primary transition-all duration-300 ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        <div className={`md:hidden overflow-hidden transition-all duration-300 ${mobileMenuOpen ? 'max-h-96 border-b border-border' : 'max-h-0'}`}>
+          <div className="px-6 py-4 space-y-3 bg-background/95 backdrop-blur-md">
+            <a
+              href="#"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 text-text-secondary hover:text-accent transition-colors"
+            >
+              Inicio
+            </a>
+            <a
+              href="#services"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 text-text-secondary hover:text-accent transition-colors"
+            >
+              Servicios
+            </a>
+            <a
+              href="#projects"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 text-text-secondary hover:text-accent transition-colors"
+            >
+              Proyectos
+            </a>
+            <a
+              href="#about"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 text-text-secondary hover:text-accent transition-colors"
+            >
+              Nosotros
+            </a>
+            <a
+              href="#ideas"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 text-text-secondary hover:text-accent transition-colors"
+            >
+              Colaboración
+            </a>
+            <a
+              href="#contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 text-text-secondary hover:text-accent transition-colors"
+            >
+              Contacto
+            </a>
           </div>
         </div>
       </nav>
@@ -345,7 +410,7 @@ export default function Home() {
           <div className="space-y-20">
             {/* Proyecto 1 - ChallengeMe App */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1 animate-on-scroll" data-animation="fade-in-left">
+              <div className="order-1 lg:order-1 animate-on-scroll" data-animation="fade-in-left">
                 <div className="flex items-center gap-2 mb-4">
                   <div className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">
                     App Móvil
@@ -381,7 +446,7 @@ export default function Home() {
               </div>
 
               {/* Mockup Container - Carrusel de Móvil */}
-              <div className="order-1 lg:order-2 animate-on-scroll" data-animation="fade-in-right">
+              <div className="order-2 lg:order-2 animate-on-scroll" data-animation="fade-in-right">
                 <MobileCarousel
                   images={[
                     '/muckUpMovile/CM/1.png',
@@ -394,10 +459,17 @@ export default function Home() {
               </div>
             </div>
 
+            {/* Separador sutil entre proyectos */}
+            <div className="flex items-center gap-4 my-16">
+              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
+              <div className="w-2 h-2 rounded-full bg-accent/50"></div>
+              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
+            </div>
+
             {/* Proyecto 2 - Gestor Visión Allende (Layout Izquierda) */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               {/* Mockup Container - Web Carousel */}
-              <div className="animate-on-scroll" data-animation="fade-in-left">
+              <div className="order-2 lg:order-1 animate-on-scroll" data-animation="fade-in-left">
               <WebCarousel
                 images={[
                   '/muckUpWeb/VA/1.png',
@@ -410,7 +482,7 @@ export default function Home() {
               />
               </div>
 
-              <div className="animate-on-scroll" data-animation="fade-in-right">
+              <div className="order-1 lg:order-2 animate-on-scroll" data-animation="fade-in-right">
                 <div className="flex items-center gap-2 mb-4">
                   <div className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">
                     Aplicación Web
@@ -450,9 +522,16 @@ export default function Home() {
               </div>
             </div>
 
+            {/* Separador sutil entre proyectos */}
+            <div className="flex items-center gap-4 my-16">
+              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
+              <div className="w-2 h-2 rounded-full bg-accent/50"></div>
+              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
+            </div>
+
             {/* Proyecto 3 - Arcana */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1 animate-on-scroll" data-animation="fade-in-left">
+              <div className="order-1 lg:order-1 animate-on-scroll" data-animation="fade-in-left">
                 <div className="flex items-center gap-2 mb-4">
                   <div className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">
                     App Móvil
@@ -495,7 +574,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="order-1 lg:order-2 animate-on-scroll" data-animation="fade-in-right">
+              <div className="order-2 lg:order-2 animate-on-scroll" data-animation="fade-in-right">
                 <MobileCarousel
                   images={[
                     '/muckUpMovile/AC/6.png',
@@ -509,10 +588,17 @@ export default function Home() {
               </div>
             </div>
 
+            {/* Separador sutil entre proyectos */}
+            <div className="flex items-center gap-4 my-16">
+              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
+              <div className="w-2 h-2 rounded-full bg-accent/50"></div>
+              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
+            </div>
+
             {/* Proyecto 4 - Tipsterzone */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               {/* Mockup Container - Web Carousel */}
-              <div className="animate-on-scroll" data-animation="fade-in-right">
+              <div className="order-2 lg:order-1 animate-on-scroll" data-animation="fade-in-right">
               <WebCarousel
                 images={[
                   '/muckUpWeb/TP/1.png',
@@ -525,7 +611,7 @@ export default function Home() {
               />
               </div>
 
-              <div className="animate-on-scroll" data-animation="fade-in-left">
+              <div className="order-1 lg:order-2 animate-on-scroll" data-animation="fade-in-left">
                 <div className="flex items-center gap-2 mb-4">
                   <div className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">
                     Aplicación Web
@@ -601,10 +687,10 @@ export default function Home() {
             {/* Logo o imagen */}
             <div className="relative flex items-center justify-center animate-on-scroll" data-animation="fade-in-right">
               {/* Efecto glow detrás */}
-              <div className="absolute w-[400px] h-[400px] bg-accent/20 rounded-full blur-3xl"></div>
+              <div className="absolute w-[200px] h-[200px] md:w-[400px] md:h-[400px] bg-accent/20 rounded-full blur-3xl"></div>
 
               {/* Logo principal - perfectamente redondo */}
-              <div className="relative w-96 h-96 rounded-full overflow-hidden border-4 border-accent/30 shadow-2xl hover:border-accent/60 hover:scale-105 transition-all duration-500">
+              <div className="relative w-48 h-48 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-accent/30 shadow-2xl hover:border-accent/60 hover:scale-105 transition-all duration-500">
                 <Image
                   src="/logos/logoND.png"
                   alt="NexDev Logo"
@@ -1100,6 +1186,7 @@ function MobileCarousel({ images }: { images: string[] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
+  const [showSwipeHint, setShowSwipeHint] = useState(true);
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % images.length);
@@ -1131,9 +1218,11 @@ function MobileCarousel({ images }: { images: string[] }) {
 
     if (isLeftSwipe) {
       nextSlide();
+      setShowSwipeHint(false);
     }
     if (isRightSwipe) {
       prevSlide();
+      setShowSwipeHint(false);
     }
 
     // Reset
@@ -1145,6 +1234,18 @@ function MobileCarousel({ images }: { images: string[] }) {
     <div className="relative group">
       <div className="absolute -inset-4 bg-linear-to-r from-accent/20 to-accent-light/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-40 transition-all duration-500"></div>
       <div className="relative bg-surface/50 backdrop-blur-sm border-2 border-border rounded-3xl p-6 group-hover:border-accent/50 transition-all duration-500">
+
+        {/* Indicador de swipe - solo visible en móvil */}
+        {showSwipeHint && currentIndex === 0 && (
+          <div className="absolute top-1/2 right-4 -translate-y-1/2 z-30 md:hidden pointer-events-none">
+            <div className="flex items-center gap-2 bg-accent/90 text-background px-3 py-2 rounded-full text-xs font-medium shadow-lg" style={{ animation: 'swipe-hint 2s ease-in-out infinite' }}>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              <span>Desliza</span>
+            </div>
+          </div>
+        )}
         {/* Contenedor de mockup móvil con aspecto de teléfono */}
         <div className="mx-auto max-w-[250px]">
           <div className="relative overflow-hidden shadow-2xl rounded-2xl" style={{ aspectRatio: '9.5/19.5' }}>
@@ -1223,6 +1324,7 @@ function WebCarousel({ images }: { images: string[] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
+  const [showSwipeHint, setShowSwipeHint] = useState(true);
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % images.length);
@@ -1254,9 +1356,11 @@ function WebCarousel({ images }: { images: string[] }) {
 
     if (isLeftSwipe) {
       nextSlide();
+      setShowSwipeHint(false);
     }
     if (isRightSwipe) {
       prevSlide();
+      setShowSwipeHint(false);
     }
 
     // Reset
@@ -1268,6 +1372,18 @@ function WebCarousel({ images }: { images: string[] }) {
     <div className="relative group">
       <div className="absolute -inset-4 bg-linear-to-r from-accent-light/20 to-accent/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
       <div className="relative bg-surface/50 backdrop-blur-sm border-2 border-border rounded-3xl p-6 group-hover:border-accent/50 transition-all duration-500">
+
+        {/* Indicador de swipe - solo visible en móvil */}
+        {showSwipeHint && currentIndex === 0 && (
+          <div className="absolute top-1/2 right-6 -translate-y-1/2 z-30 md:hidden pointer-events-none">
+            <div className="flex items-center gap-2 bg-accent/90 text-background px-3 py-2 rounded-full text-xs font-medium shadow-lg" style={{ animation: 'swipe-hint 2s ease-in-out infinite' }}>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              <span>Desliza</span>
+            </div>
+          </div>
+        )}
         {/* Contenedor browser mockup */}
         <div className="bg-background rounded-2xl overflow-hidden border-2 border-border shadow-2xl">
           {/* Browser bar */}

@@ -273,3 +273,15 @@ body {
 .animate-on-scroll {
   opacity: 0;
 }
+
+/* Animación de indicador de swipe */
+@keyframes swipe-hint {
+  0%, 100% {
+    transform: translateX(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateX(-10px);
+    opacity: 1;
+  }
+}
