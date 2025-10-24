@@ -7,6 +7,8 @@ import emailjs from '@emailjs/browser';
 export default function Home() {
   // Estado para menú móvil
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  // Estado para opacidad del hero basado en scroll
+  const [heroOpacity, setHeroOpacity] = useState(1);
 
   // Intersection Observer para animaciones al hacer scroll
   useEffect(() => {
@@ -30,6 +32,32 @@ export default function Home() {
     elements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
+  }, []);
+
+  // Efecto de desvanecimiento del Hero al hacer scroll
+  useEffect(() => {
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          const heroHeight = window.innerHeight;
+
+          // Calcular opacidad basada en el scroll (de 1 a 0)
+          // El texto se desvanece completamente al llegar a 70vh de scroll
+          const opacity = Math.max(0, 1 - (scrollY / (heroHeight * 0.7)));
+          setHeroOpacity(opacity);
+
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Ejecutar al montar
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
 
@@ -188,7 +216,10 @@ export default function Home() {
             perspective: 1000
           }}
         >
-          <div className="max-w-7xl mx-auto w-full">
+          <div
+            className="max-w-7xl mx-auto w-full transition-opacity duration-100 ease-out"
+            style={{ opacity: heroOpacity }}
+          >
             <div className="max-w-4xl">
               <p className="text-accent mb-4 text-sm font-medium tracking-wider uppercase opacity-0 animate-[fadeInUp_0.8s_ease-out_0.1s_forwards]">
                 Desarrollo de Software Profesional
