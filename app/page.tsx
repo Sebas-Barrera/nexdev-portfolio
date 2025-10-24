@@ -10,6 +10,117 @@ export default function Home() {
   // Estado para opacidad del hero basado en scroll
   const [heroOpacity, setHeroOpacity] = useState(1);
 
+  // Schema.org JSON-LD para SEO
+  const schemaOrgJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": "https://nexdev-portfolio-phi.vercel.app",
+    name: "NexDev",
+    image: "https://nexdev-portfolio-phi.vercel.app/logos/logoND.png",
+    description: "Desarrollador de software profesional especializado en creación de páginas web, aplicaciones móviles y sistemas backend. Ingeniero en software con experiencia en Next.js, React Native, Node.js, Angular, Vue.js.",
+    url: "https://nexdev-portfolio-phi.vercel.app",
+    telephone: "",
+    email: "nexdevcoding@gmail.com",
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "MX",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      addressCountry: "MX"
+    },
+    priceRange: "$$",
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "5",
+      reviewCount: "10"
+    },
+    sameAs: [
+      "https://www.linkedin.com/in/sebas-barrera-571242247/",
+      "https://github.com/Sebas-Barrera"
+    ],
+    serviceType: [
+      "Desarrollo de Software",
+      "Creación de Páginas Web",
+      "Desarrollo de Aplicaciones Móviles",
+      "Desarrollo Backend",
+      "Ingeniería de Software"
+    ],
+    areaServed: {
+      "@type": "Country",
+      name: "México"
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Servicios de Desarrollo",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Desarrollo Web",
+            description: "Aplicaciones web modernas y responsivas con Next.js, React, Vue.js y Angular"
+          }
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Desarrollo de Aplicaciones Móviles",
+            description: "Apps nativas y multiplataforma para iOS y Android con Flutter, React Native y Swift"
+          }
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Backend & APIs",
+            description: "Arquitecturas robustas y escalables con Node.js, Laravel, Python y .NET"
+          }
+        }
+      ]
+    },
+    knowsAbout: [
+      "Next.js",
+      "React",
+      "React Native",
+      "Node.js",
+      "TypeScript",
+      "Angular",
+      "Vue.js",
+      "Flutter",
+      "Swift",
+      "Laravel",
+      "Python",
+      "PostgreSQL",
+      "MongoDB"
+    ]
+  };
+
+  const personSchemaJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Sebastián Barrera",
+    jobTitle: "Ingeniero en Software",
+    worksFor: {
+      "@type": "Organization",
+      name: "NexDev"
+    },
+    url: "https://nexdev-portfolio-phi.vercel.app",
+    sameAs: [
+      "https://www.linkedin.com/in/sebas-barrera-571242247/",
+      "https://github.com/Sebas-Barrera"
+    ],
+    knowsAbout: [
+      "Desarrollo de Software",
+      "Ingeniería de Software",
+      "Desarrollo Web",
+      "Desarrollo Móvil",
+      "Full Stack Development"
+    ],
+    email: "nexdevcoding@gmail.com"
+  };
+
   // Intersection Observer para animaciones al hacer scroll
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -62,7 +173,18 @@ export default function Home() {
 
 
   return (
-    <div className="min-h-screen bg-background relative overflow-hidden">
+    <>
+      {/* Schema.org JSON-LD para SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrgJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchemaJsonLd) }}
+      />
+
+      <div className="min-h-screen bg-background relative overflow-hidden">
       {/* Fondo con animaciones orgánicas */}
       <div className="fixed inset-0 z-0 overflow-hidden">
         {/* Gradiente base */}
@@ -221,15 +343,15 @@ export default function Home() {
             style={{ opacity: heroOpacity }}
           >
             <div className="max-w-4xl">
-              <p className="text-accent mb-4 text-sm font-medium tracking-wider uppercase opacity-0 animate-[fadeInUp_0.8s_ease-out_0.1s_forwards]">
-                Desarrollo de Software Profesional
+              <p className="text-accent mb-4 text-sm font-medium tracking-wider uppercase opacity-0 animate-[fadeInUp_0.8s_ease-out_0.1s_forwards]" itemProp="description">
+                Desarrollador de Software | Ingeniero en Software | Creador de Páginas Web
               </p>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text-primary mb-6 leading-tight opacity-0 animate-[fadeInUp_0.8s_ease-out_0.2s_forwards]">
-                Transformamos tus ideas en <span className="text-accent">soluciones digitales</span>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text-primary mb-6 leading-tight opacity-0 animate-[fadeInUp_0.8s_ease-out_0.2s_forwards]" itemProp="name">
+                Desarrollador de Software Profesional: Transformamos tus ideas en <span className="text-accent">soluciones digitales</span>
               </h1>
-              <p className="text-xl md:text-2xl text-text-secondary font-light leading-relaxed mb-8 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.5s_forwards]">
-                Ingeniería Full Stack especializada en desarrollo web, móvil y backend.
-                Creamos aplicaciones escalables y de alto rendimiento.
+              <p className="text-xl md:text-2xl text-text-secondary font-light leading-relaxed mb-8 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.5s_forwards]" itemProp="description">
+                Ingeniería de Software Full Stack. Creador de páginas web modernas y aplicaciones móviles.
+                Especializado en desarrollo web con Next.js, React, Angular. Desarrollamos software escalable y de alto rendimiento.
               </p>
               <div className="flex flex-wrap gap-4 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.7s_forwards]">
                 <a href="#contact" className="px-8 py-4 bg-accent text-background rounded-full font-medium hover:bg-accent-light transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-accent/30">
@@ -245,25 +367,25 @@ export default function Home() {
       </div>
 
       {/* Servicios Section */}
-      <section id="services" className="relative z-10 py-20 px-6 lg:px-8 bg-background border-t border-border">
+      <section id="services" className="relative z-10 py-20 px-6 lg:px-8 bg-background border-t border-border" aria-labelledby="services-heading">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-text-primary mb-12 text-center animate-fade-in-slide">
-            Nuestros Servicios
+          <h2 id="services-heading" className="text-3xl md:text-4xl font-semibold tracking-tight text-text-primary mb-12 text-center animate-fade-in-slide">
+            Servicios de Desarrollo de Software - Creación de Páginas Web y Apps
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Desarrollo Web */}
-            <div className="group bg-surface border border-border rounded-2xl p-8 hover:border-accent organic-hover cursor-pointer animate-on-scroll animate-fade-in-slide animation-delay-100">
+            <article className="group bg-surface border border-border rounded-2xl p-8 hover:border-accent organic-hover cursor-pointer animate-on-scroll animate-fade-in-slide animation-delay-100" itemScope itemType="https://schema.org/Service">
               <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-all duration-500">
-                <svg className="w-6 h-6 text-accent group-hover:scale-110 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 text-accent group-hover:scale-110 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-text-primary mb-3 group-hover:text-accent transition-colors duration-300">
-                Desarrollo Web
+              <h3 className="text-xl font-semibold text-text-primary mb-3 group-hover:text-accent transition-colors duration-300" itemProp="name">
+                Desarrollo Web Profesional | Creación de Páginas Web
               </h3>
-              <p className="text-text-secondary text-sm leading-relaxed mb-4">
-                Aplicaciones web modernas y responsivas con las últimas tecnologías
+              <p className="text-text-secondary text-sm leading-relaxed mb-4" itemProp="description">
+                Creador de páginas web modernas y responsivas. Desarrollo web con Next.js, React, Angular y Vue.js. Sitios web profesionales optimizados para SEO.
               </p>
               <div className="flex flex-wrap gap-2">
                 <span className="text-xs text-accent">Next.js</span>
@@ -272,20 +394,20 @@ export default function Home() {
                 <span className="text-xs text-text-secondary">•</span>
                 <span className="text-xs text-accent">Angular</span>
               </div>
-            </div>
+            </article>
 
             {/* Desarrollo Móvil */}
-            <div className="group bg-surface border border-border rounded-2xl p-8 hover:border-accent organic-hover cursor-pointer animate-on-scroll animate-fade-in-slide animation-delay-300">
+            <article className="group bg-surface border border-border rounded-2xl p-8 hover:border-accent organic-hover cursor-pointer animate-on-scroll animate-fade-in-slide animation-delay-300" itemScope itemType="https://schema.org/Service">
               <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-all duration-500">
                 <svg className="w-6 h-6 text-accent group-hover:scale-110 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-text-primary mb-3 group-hover:text-accent transition-colors duration-300">
-                Apps Móviles
+              <h3 className="text-xl font-semibold text-text-primary mb-3 group-hover:text-accent transition-colors duration-300" itemProp="name">
+                Desarrollo de Aplicaciones Móviles | Apps iOS y Android
               </h3>
-              <p className="text-text-secondary text-sm leading-relaxed mb-4">
-                Aplicaciones nativas y multiplataforma para iOS y Android
+              <p className="text-text-secondary text-sm leading-relaxed mb-4" itemProp="description">
+                Desarrollo de aplicaciones móviles nativas y multiplataforma. Apps para iOS y Android con Flutter, React Native y Swift. Software móvil de calidad profesional.
               </p>
               <div className="flex flex-wrap gap-2">
                 <span className="text-xs text-accent">Flutter</span>
@@ -294,20 +416,20 @@ export default function Home() {
                 <span className="text-xs text-text-secondary">•</span>
                 <span className="text-xs text-accent">Ionic</span>
               </div>
-            </div>
+            </article>
 
             {/* Backend & APIs */}
-            <div className="group bg-surface border border-border rounded-2xl p-8 hover:border-accent organic-hover cursor-pointer animate-on-scroll animate-fade-in-slide animation-delay-500">
+            <article className="group bg-surface border border-border rounded-2xl p-8 hover:border-accent organic-hover cursor-pointer animate-on-scroll animate-fade-in-slide animation-delay-500" itemScope itemType="https://schema.org/Service">
               <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-all duration-500">
                 <svg className="w-6 h-6 text-accent group-hover:scale-110 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-text-primary mb-3 group-hover:text-accent transition-colors duration-300">
-                Backend & APIs
+              <h3 className="text-xl font-semibold text-text-primary mb-3 group-hover:text-accent transition-colors duration-300" itemProp="name">
+                Desarrollo Backend | APIs REST y GraphQL
               </h3>
-              <p className="text-text-secondary text-sm leading-relaxed mb-4">
-                Arquitecturas robustas y escalables con bases de datos optimizadas
+              <p className="text-text-secondary text-sm leading-relaxed mb-4" itemProp="description">
+                Ingeniería de software backend. Desarrollo de APIs REST y GraphQL con Node.js, Laravel, Python y .NET. Arquitecturas robustas, escalables y seguras con bases de datos optimizadas.
               </p>
               <div className="flex flex-wrap gap-2">
                 <span className="text-xs text-accent">Node.js</span>
@@ -316,7 +438,7 @@ export default function Home() {
                 <span className="text-xs text-text-secondary">•</span>
                 <span className="text-xs text-accent">Python</span>
               </div>
-            </div>
+            </article>
           </div>
         </div>
       </section>
@@ -1039,6 +1161,7 @@ export default function Home() {
       </footer>
       </div>
     </div>
+    </>
   );
 }
 
