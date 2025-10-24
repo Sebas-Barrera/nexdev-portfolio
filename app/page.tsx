@@ -5,8 +5,6 @@ import { useState, useRef, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 
 export default function Home() {
-  // Estado para sticky hero
-  const [heroFixed, setHeroFixed] = useState(false);
   // Estado para menú móvil
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -32,26 +30,6 @@ export default function Home() {
     elements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
-  }, []);
-
-  // Efecto sticky para Hero Section
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const heroHeight = window.innerHeight;
-
-      // El hero se queda fijo cuando empezamos a hacer scroll
-      // y se mantiene hasta que termine el espacio del container (200vh)
-      if (scrollY > 10 && scrollY < heroHeight * 2 - 10) {
-        setHeroFixed(true);
-      } else {
-        setHeroFixed(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Ejecutar al montar
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
 
@@ -201,9 +179,14 @@ export default function Home() {
       </nav>
 
       {/* Hero Section - Container con altura para sticky */}
-      <div id="hero-container" className="relative" style={{ height: '200vh' }}>
+      <div id="hero-container" className="relative" style={{ height: '100vh' }}>
         <section
-          className={`${heroFixed ? 'fixed' : 'absolute'} top-0 left-0 right-0 h-screen flex items-center px-6 lg:px-8 z-0 transition-all duration-300`}
+          className="fixed top-0 left-0 right-0 h-screen flex items-center px-6 lg:px-8 z-0"
+          style={{
+            transform: 'translate3d(0, 0, 0)',
+            backfaceVisibility: 'hidden',
+            perspective: 1000
+          }}
         >
           <div className="max-w-7xl mx-auto w-full">
             <div className="max-w-4xl">
