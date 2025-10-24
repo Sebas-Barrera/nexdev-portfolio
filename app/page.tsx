@@ -343,11 +343,11 @@ export default function Home() {
             style={{ opacity: heroOpacity }}
           >
             <div className="max-w-4xl">
-              <p className="text-accent mb-4 text-sm font-medium tracking-wider uppercase opacity-0 animate-[fadeInUp_0.8s_ease-out_0.1s_forwards]" itemProp="description">
+              {/* <p className="text-accent mb-4 text-sm font-medium tracking-wider uppercase opacity-0 animate-[fadeInUp_0.8s_ease-out_0.1s_forwards]" itemProp="description">
                 Desarrollador de Software | Ingeniero en Software | Creador de Páginas Web
-              </p>
+              </p> */}
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text-primary mb-6 leading-tight opacity-0 animate-[fadeInUp_0.8s_ease-out_0.2s_forwards]" itemProp="name">
-                Desarrollador de Software Profesional: Transformamos tus ideas en <span className="text-accent">soluciones digitales</span>
+                Transformamos tus ideas en <span className="text-accent">soluciones digitales</span>
               </h1>
               <p className="text-xl md:text-2xl text-text-secondary font-light leading-relaxed mb-8 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.5s_forwards]" itemProp="description">
                 Ingeniería de Software Full Stack. Creador de páginas web modernas y aplicaciones móviles.
