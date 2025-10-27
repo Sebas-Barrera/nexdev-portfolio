@@ -11,75 +11,18 @@ export default function Home() {
   const [heroOpacity, setHeroOpacity] = useState(1);
 
   // Schema.org JSON-LD para SEO
-  const schemaOrgJsonLd = {
+  const personSchemaJsonLd = {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "@id": "https://nexdev-portfolio-phi.vercel.app",
-    name: "NexDev",
-    image: "https://nexdev-portfolio-phi.vercel.app/logos/logoND.png",
-    description: "Desarrollador de software profesional especializado en creación de páginas web, aplicaciones móviles y sistemas backend. Ingeniero en software con experiencia en Next.js, React Native, Node.js, Angular, Vue.js.",
-    url: "https://nexdev-portfolio-phi.vercel.app",
-    telephone: "",
+    "@type": "Person",
+    name: "Sebastián Barrera",
+    jobTitle: "Desarrollador Full Stack & Ingeniero de Software",
+    image: "https://sebastian-portafolio.vercel.app/logos/logoND.png",
+    url: "https://sebastian-portafolio.vercel.app",
     email: "nexdevcoding@gmail.com",
-    address: {
-      "@type": "PostalAddress",
-      addressCountry: "MX",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      addressCountry: "MX"
-    },
-    priceRange: "$$",
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "5",
-      reviewCount: "10"
-    },
     sameAs: [
       "https://www.linkedin.com/in/sebas-barrera-571242247/",
       "https://github.com/Sebas-Barrera"
     ],
-    serviceType: [
-      "Desarrollo de Software",
-      "Creación de Páginas Web",
-      "Desarrollo de Aplicaciones Móviles",
-      "Desarrollo Backend",
-      "Ingeniería de Software"
-    ],
-    areaServed: {
-      "@type": "Country",
-      name: "México"
-    },
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Servicios de Desarrollo",
-      itemListElement: [
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Desarrollo Web",
-            description: "Aplicaciones web modernas y responsivas con Next.js, React, Vue.js y Angular"
-          }
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Desarrollo de Aplicaciones Móviles",
-            description: "Apps nativas y multiplataforma para iOS y Android con Flutter, React Native y Swift"
-          }
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Backend & APIs",
-            description: "Arquitecturas robustas y escalables con Node.js, Laravel, Python y .NET"
-          }
-        }
-      ]
-    },
     knowsAbout: [
       "Next.js",
       "React",
@@ -93,32 +36,50 @@ export default function Home() {
       "Laravel",
       "Python",
       "PostgreSQL",
-      "MongoDB"
-    ]
-  };
-
-  const personSchemaJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Sebastián Barrera",
-    jobTitle: "Ingeniero en Software",
-    worksFor: {
-      "@type": "Organization",
-      name: "NexDev"
-    },
-    url: "https://nexdev-portfolio-phi.vercel.app",
-    sameAs: [
-      "https://www.linkedin.com/in/sebas-barrera-571242247/",
-      "https://github.com/Sebas-Barrera"
-    ],
-    knowsAbout: [
+      "MongoDB",
       "Desarrollo de Software",
       "Ingeniería de Software",
       "Desarrollo Web",
       "Desarrollo Móvil",
       "Full Stack Development"
     ],
-    email: "nexdevcoding@gmail.com"
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "MX"
+    },
+    hasOccupation: {
+      "@type": "Occupation",
+      name: "Desarrollador Full Stack",
+      occupationalCategory: "15-1252.00",
+      skills: "Next.js, React, React Native, Node.js, TypeScript, Angular, Vue.js, Flutter, Swift, Laravel, Python",
+      description: "Desarrollo de aplicaciones web y móviles, creación de APIs y arquitecturas backend escalables"
+    },
+    makesOffer: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Desarrollo Web",
+          description: "Aplicaciones web modernas y responsivas con Next.js, React, Vue.js y Angular"
+        }
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Desarrollo de Aplicaciones Móviles",
+          description: "Apps nativas y multiplataforma para iOS y Android con Flutter, React Native y Swift"
+        }
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Backend & APIs",
+          description: "Arquitecturas robustas y escalables con Node.js, Laravel, Python y .NET"
+        }
+      }
+    ]
   };
 
   // Intersection Observer para animaciones al hacer scroll
@@ -175,10 +136,6 @@ export default function Home() {
   return (
     <>
       {/* Schema.org JSON-LD para SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrgJsonLd) }}
-      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchemaJsonLd) }}
@@ -241,14 +198,14 @@ export default function Home() {
               <div className="relative w-10 h-10 rounded-full overflow-hidden">
                 <Image
                   src="/logos/logoND.png"
-                  alt="NexDev Logo"
+                  alt="Sebastián Barrera Logo"
                   fill
                   className="object-cover"
                 />
               </div>
               <div className="flex items-center gap-1">
-                <span className="text-xl font-bold tracking-tight text-accent">Nex</span>
-                <span className="text-xl font-bold tracking-tight text-text-primary">Dev</span>
+                <span className="text-xl font-bold tracking-tight text-accent">Sebastián</span>
+                <span className="text-xl font-bold tracking-tight text-text-primary">Barrera</span>
               </div>
             </div>
 
@@ -257,7 +214,7 @@ export default function Home() {
               <a href="#" className="text-sm text-text-secondary hover:text-accent transition-colors">Inicio</a>
               <a href="#services" className="text-sm text-text-secondary hover:text-accent transition-colors">Servicios</a>
               <a href="#projects" className="text-sm text-text-secondary hover:text-accent transition-colors">Proyectos</a>
-              <a href="#about" className="text-sm text-text-secondary hover:text-accent transition-colors">Nosotros</a>
+              <a href="#about" className="text-sm text-text-secondary hover:text-accent transition-colors">Sobre mí</a>
               <a href="#ideas" className="text-sm text-text-secondary hover:text-accent transition-colors flex items-center gap-1">
                 <span>Colaboración</span>
               </a>
@@ -308,7 +265,7 @@ export default function Home() {
               onClick={() => setMobileMenuOpen(false)}
               className="block py-2 text-text-secondary hover:text-accent transition-colors"
             >
-              Nosotros
+              Sobre mí
             </a>
             <a
               href="#ideas"
@@ -347,11 +304,11 @@ export default function Home() {
                 Desarrollador de Software | Ingeniero en Software | Creador de Páginas Web
               </p> */}
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text-primary mb-6 leading-tight opacity-0 animate-[fadeInUp_0.8s_ease-out_0.2s_forwards]" itemProp="name">
-                Transformamos tus ideas en <span className="text-accent">soluciones digitales</span>
+                Transformo tus ideas en <span className="text-accent">soluciones digitales</span>
               </h1>
               <p className="text-xl md:text-2xl text-text-secondary font-light leading-relaxed mb-8 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.5s_forwards]" itemProp="description">
-                Ingeniería de Software Full Stack. Creador de páginas web modernas y aplicaciones móviles.
-                Especializado en desarrollo web con Next.js, React, Angular. Desarrollamos software escalable y de alto rendimiento.
+                Ingeniero de Software & Desarrollador Full Stack. Especializado en desarrollo web con Next.js, React, Angular y aplicaciones móviles.
+                Creo software escalable y de alto rendimiento.
               </p>
               <div className="flex flex-wrap gap-4 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.7s_forwards]">
                 <a href="#contact" className="px-8 py-4 bg-accent text-background rounded-full font-medium hover:bg-accent-light transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-accent/30">
@@ -370,7 +327,7 @@ export default function Home() {
       <section id="services" className="relative z-10 py-20 px-6 lg:px-8 bg-background border-t border-border" aria-labelledby="services-heading">
         <div className="max-w-7xl mx-auto">
           <h2 id="services-heading" className="text-3xl md:text-4xl font-semibold tracking-tight text-text-primary mb-12 text-center animate-fade-in-slide">
-            Servicios de Desarrollo de Software - Creación de Páginas Web y Apps
+            Experiencia & Servicios
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -385,7 +342,7 @@ export default function Home() {
                 Desarrollo Web Profesional | Creación de Páginas Web
               </h3>
               <p className="text-text-secondary text-sm leading-relaxed mb-4" itemProp="description">
-                Creador de páginas web modernas y responsivas. Desarrollo web con Next.js, React, Angular y Vue.js. Sitios web profesionales optimizados para SEO.
+                Creo páginas web modernas y responsivas con Next.js, React, Angular y Vue.js. Sitios web profesionales optimizados para rendimiento y SEO.
               </p>
               <div className="flex flex-wrap gap-2">
                 <span className="text-xs text-accent">Next.js</span>
@@ -407,7 +364,7 @@ export default function Home() {
                 Desarrollo de Aplicaciones Móviles | Apps iOS y Android
               </h3>
               <p className="text-text-secondary text-sm leading-relaxed mb-4" itemProp="description">
-                Desarrollo de aplicaciones móviles nativas y multiplataforma. Apps para iOS y Android con Flutter, React Native y Swift. Software móvil de calidad profesional.
+                Desarrollo aplicaciones móviles nativas y multiplataforma para iOS y Android con Flutter, React Native y Swift. Software móvil de calidad profesional.
               </p>
               <div className="flex flex-wrap gap-2">
                 <span className="text-xs text-accent">Flutter</span>
@@ -429,7 +386,7 @@ export default function Home() {
                 Desarrollo Backend | APIs REST y GraphQL
               </h3>
               <p className="text-text-secondary text-sm leading-relaxed mb-4" itemProp="description">
-                Ingeniería de software backend. Desarrollo de APIs REST y GraphQL con Node.js, Laravel, Python y .NET. Arquitecturas robustas, escalables y seguras con bases de datos optimizadas.
+                Especializado en ingeniería de software backend. Creo APIs REST y GraphQL con Node.js, Laravel, Python y .NET. Arquitecturas robustas, escalables y seguras con bases de datos optimizadas.
               </p>
               <div className="flex flex-wrap gap-2">
                 <span className="text-xs text-accent">Node.js</span>
@@ -523,7 +480,7 @@ export default function Home() {
 
           {/* Puntos de luz pulsantes - inferior */}
           <div
-            className="absolute bottom-[10%] right-[18%] w-[240px] h-[240px] bg-accent/23 rounded-full"
+            className="absolute bottom-[10%] right-[18%] w-60 h-60 bg-accent/23 rounded-full"
             style={{ animation: 'pulse-glow 11s ease-in-out infinite', animationDelay: '-6s' }}
           ></div>
 
@@ -539,7 +496,7 @@ export default function Home() {
               Proyectos Destacados
             </h2>
             <p className="text-text-secondary max-w-2xl mx-auto">
-              Soluciones reales que han transformado negocios. Aquí algunos de nuestros trabajos más relevantes.
+              Soluciones reales que han transformado negocios. Algunos de mis trabajos más relevantes.
             </p>
           </div>
 
@@ -547,9 +504,15 @@ export default function Home() {
             {/* Proyecto 1 - ChallengeMe App */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="order-1 lg:order-1 animate-on-scroll" data-animation="fade-in-left">
-                <div className="flex items-center gap-2 mb-4">
+                <div className="flex items-center gap-2 mb-4 flex-wrap">
                   <div className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">
                     App Móvil
+                  </div>
+                  <div className="inline-flex px-3 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full items-center gap-1.5 font-medium">
+                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+                    </svg>
+                    Techvision Team
                   </div>
                   <div className="inline-flex px-3 py-1 bg-green-500/10 text-green-400 text-xs rounded-full items-center gap-1.5">
                     <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span>
@@ -557,7 +520,7 @@ export default function Home() {
                   </div>
                 </div>
                 <h3 className="text-3xl font-semibold text-text-primary mb-4">
-                  ChallengeMe
+                  ChallengeMe.
                 </h3>
                 <p className="text-text-secondary mb-6 leading-relaxed">
                   Aplicación móvil innovadora que ofrece retos con diferentes temáticas para cualquier tipo de reunión,
@@ -576,7 +539,7 @@ export default function Home() {
                     <span className="text-accent font-medium">Disponibilidad:</span> App Store y Play Store (próximamente)
                   </p>
                   <p className="text-sm text-text-secondary mt-1">
-                    <span className="text-accent font-medium">Rol NexDev:</span> Frontend Development
+                    <span className="text-accent font-medium">Mi Rol:</span> Frontend Development
                   </p>
                 </div>
               </div>
@@ -619,9 +582,15 @@ export default function Home() {
               </div>
 
               <div className="order-1 lg:order-2 animate-on-scroll" data-animation="fade-in-right">
-                <div className="flex items-center gap-2 mb-4">
+                <div className="flex items-center gap-2 mb-4 flex-wrap">
                   <div className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">
                     Aplicación Web
+                  </div>
+                  <div className="inline-flex px-3 py-1 bg-purple-500/10 text-purple-400 text-xs rounded-full items-center gap-1.5 font-medium">
+                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path>
+                    </svg>
+                    Proyecto Individual
                   </div>
                   <div className="inline-flex px-3 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full items-center gap-1.5">
                     <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
@@ -652,7 +621,7 @@ export default function Home() {
                     <span className="text-accent font-medium">Stack:</span> Full-stack Next.js con backend integrado
                   </p>
                   <p className="text-sm text-text-secondary mt-1">
-                    <span className="text-accent font-medium">Rol NexDev:</span> Full-stack Developer
+                    <span className="text-accent font-medium">Mi Rol:</span> Full-stack Developer
                   </p>
                 </div>
               </div>
@@ -668,9 +637,15 @@ export default function Home() {
             {/* Proyecto 3 - Arcana */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="order-1 lg:order-1 animate-on-scroll" data-animation="fade-in-left">
-                <div className="flex items-center gap-2 mb-4">
+                <div className="flex items-center gap-2 mb-4 flex-wrap">
                   <div className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">
                     App Móvil
+                  </div>
+                  <div className="inline-flex px-3 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full items-center gap-1.5 font-medium">
+                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+                    </svg>
+                    Techvision Team
                   </div>
                   <div className="inline-flex px-3 py-1 bg-green-500/10 text-green-400 text-xs rounded-full items-center gap-1.5">
                     <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span>
@@ -705,7 +680,7 @@ export default function Home() {
                     <span className="text-accent font-medium">Contenido:</span> Tarot, fases lunares, velas, rituales y comunidad
                   </p>
                   <p className="text-sm text-text-secondary mt-1">
-                    <span className="text-accent font-medium">Rol NexDev:</span> Frontend Developer 
+                    <span className="text-accent font-medium">Mi Rol:</span> Frontend Developer 
                   </p>
                 </div>
               </div>
@@ -748,9 +723,15 @@ export default function Home() {
               </div>
 
               <div className="order-1 lg:order-2 animate-on-scroll" data-animation="fade-in-left">
-                <div className="flex items-center gap-2 mb-4">
+                <div className="flex items-center gap-2 mb-4 flex-wrap">
                   <div className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">
                     Aplicación Web
+                  </div>
+                  <div className="inline-flex px-3 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full items-center gap-1.5 font-medium">
+                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+                    </svg>
+                    Techvision Team
                   </div>
                   <div className="inline-flex px-3 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full items-center gap-1.5">
                     <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
@@ -786,7 +767,7 @@ export default function Home() {
                     <span className="text-accent font-medium">Modelo:</span> Freemium con membresías premium
                   </p>
                   <p className="text-sm text-text-secondary mt-1">
-                    <span className="text-accent font-medium">Rol NexDev:</span> Full-stack Developer (principalmente Frontend)
+                    <span className="text-accent font-medium">Mi Rol:</span> Full-stack Developer (principalmente Frontend)
                   </p>
                 </div>
               </div>
@@ -795,27 +776,29 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sobre NexDev Section */}
+      {/* Sobre Sebastián Barrera Section */}
       <section id="about" className="relative z-10 py-20 px-6 lg:px-8 bg-background border-t border-border">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-on-scroll" data-animation="fade-in-left">
               <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-text-primary mb-6">
-                Sobre NexDev
+                Sobre mí
               </h2>
               <div className="space-y-4 text-text-secondary leading-relaxed">
                 <p>
-                  Somos un equipo de desarrollo de software especializado en crear soluciones digitales completas.
-                  Ofrecemos servicios de desarrollo web, móvil y backend con las tecnologías más modernas y
-                  demandadas del mercado.
+                  Soy desarrollador full stack especializado en crear soluciones digitales completas.
+                  Trabajo con las tecnologías más modernas y demandadas del mercado: Next.js, React, Angular,
+                  React Native, Node.js y más.
                 </p>
                 <p>
-                  Nuestro enfoque está en entregar código limpio, arquitecturas escalables y productos que realmente
-                  resuelvan problemas de negocio. Cada proyecto es una oportunidad para aplicar las mejores
-                  prácticas de la industria.
+                  Formo parte de <span className="text-accent font-medium">Techvision</span>, un equipo de 4 desarrolladores
+                  talentosos donde colaboramos en proyectos de gran escala y alta complejidad.
+                  Esta experiencia de trabajo en equipo me ha permitido desarrollar habilidades tanto técnicas como de colaboración.
                 </p>
-                <p className="text-text-primary font-medium">
-                  ¿Por qué NexDev? Experiencia técnica completa + compromiso con la calidad.
+                <p>
+                  <span className="text-text-primary font-medium">Para proyectos individuales</span>, ofrezco mis servicios de forma independiente
+                  en desarrollo web, móvil y backend. <span className="text-text-primary font-medium">Para proyectos empresariales
+                  más grandes</span>, cuento con el respaldo completo del equipo Techvision.
                 </p>
               </div>
             </div>
@@ -825,14 +808,15 @@ export default function Home() {
               {/* Efecto glow detrás */}
               <div className="absolute w-[200px] h-[200px] md:w-[400px] md:h-[400px] bg-accent/20 rounded-full blur-3xl"></div>
 
-              {/* Logo principal - perfectamente redondo */}
+              {/* Foto personal - perfectamente redonda */}
               <div className="relative w-48 h-48 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-accent/30 shadow-2xl hover:border-accent/60 hover:scale-105 transition-all duration-500">
                 <Image
-                  src="/logos/logoND.png"
-                  alt="NexDev Logo"
+                  src="/logos/SebasInge.png"
+                  alt="Sebastián Barrera - Desarrollador Full Stack"
                   fill
                   className="object-cover"
                   sizes="384px"
+                  priority
                 />
               </div>
             </div>
@@ -961,8 +945,14 @@ export default function Home() {
             </h2>
             <p className="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
               Si tienes una gran idea pero no el conocimiento técnico para desarrollarla,
-              podemos convertirla en realidad juntos.
+              puedo ayudarte a convertirla en realidad.
             </p>
+            <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full text-sm text-blue-400">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+              </svg>
+              Para proyectos de gran escala, cuento con el respaldo del equipo Techvision
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
@@ -983,7 +973,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="text-text-primary font-medium mb-1">Comparte tu idea</p>
-                    <p className="text-sm text-text-secondary">Cuéntanos sobre tu concepto de negocio</p>
+                    <p className="text-sm text-text-secondary">Cuéntame sobre tu concepto de negocio</p>
                   </div>
                 </div>
                 <div className="flex gap-3">
@@ -1001,7 +991,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="text-text-primary font-medium mb-1">Desarrollo conjunto</p>
-                    <p className="text-sm text-text-secondary">Construimos el proyecto como socios</p>
+                    <p className="text-sm text-text-secondary">Trabajo en el proyecto (individualmente o con el equipo Techvision según la escala)</p>
                   </div>
                 </div>
                 <div className="flex gap-3">
@@ -1079,7 +1069,7 @@ export default function Home() {
               </svg>
             </a>
             <p className="text-sm text-text-secondary mt-4">
-              O escríbenos a <span className="text-accent">nexdevcoding@gmail.com</span>
+              O escríbeme a <span className="text-accent">nexdevcoding@gmail.com</span>
             </p>
           </div>
         </div>
@@ -1091,7 +1081,7 @@ export default function Home() {
           <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-text-primary mb-4 text-center">
             Trabajemos juntos
           </h2>
-          <p className="text-center text-text-secondary mb-4">¿Tienes un proyecto en mente? Hablemos sobre cómo puedo ayudarte</p>
+          <p className="text-center text-text-secondary mb-4">¿Tienes un proyecto en mente? Conversemos sobre cómo puedo ayudarte a hacerlo realidad</p>
 
           {/* Llamado a cotización */}
           <div className="mb-12 p-6 bg-accent/5 border border-accent/20 rounded-2xl">
@@ -1106,9 +1096,9 @@ export default function Home() {
                   Cotización gratuita
                 </h3>
                 <p className="text-text-secondary text-sm leading-relaxed">
-                  Envíanos un mensaje con las especificaciones o necesidades de tu proyecto para obtener una
+                  Envíame un mensaje con las especificaciones o necesidades de tu proyecto para obtener una
                   <span className="text-accent font-medium"> cotización sin compromiso</span>.
-                  Te responderemos en menos de 24 horas con un presupuesto detallado y tiempo estimado de desarrollo.
+                  Te responderé en menos de 24 horas con un presupuesto detallado y tiempo estimado de desarrollo.
                 </p>
               </div>
             </div>
@@ -1119,7 +1109,7 @@ export default function Home() {
 
           {/* Enlaces de contacto directo */}
           <div className="mt-12 pt-12 border-t border-border">
-            <p className="text-center text-text-secondary mb-6">O contáctanos directamente:</p>
+            <p className="text-center text-text-secondary mb-6">O contáctame directamente:</p>
             <div className="flex flex-col md:flex-row justify-center gap-6">
               <a href="mailto:nexdevcoding@gmail.com" className="flex items-center justify-center gap-2 text-text-primary hover:text-accent transition-colors">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1149,12 +1139,12 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="text-sm text-text-secondary">
-              2025 Portfolio. All rights reserved.
+              2025 Sebastián Barrera. Todos los derechos reservados.
             </div>
             <div className="flex gap-6">
-              <a href="#" className="text-text-secondary hover:text-accent transition-colors">GitHub</a>
-              <a href="#" className="text-text-secondary hover:text-accent transition-colors">LinkedIn</a>
-              <a href="#" className="text-text-secondary hover:text-accent transition-colors">Email</a>
+              <a href="https://github.com/Sebas-Barrera" target="_blank" rel="noopener noreferrer" className="text-text-secondary hover:text-accent transition-colors">GitHub</a>
+              <a href="https://www.linkedin.com/in/sebas-barrera-571242247/" target="_blank" rel="noopener noreferrer" className="text-text-secondary hover:text-accent transition-colors">LinkedIn</a>
+              <a href="mailto:nexdevcoding@gmail.com" className="text-text-secondary hover:text-accent transition-colors">Email</a>
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-# Guía de Optimización SEO - NexDev Website
+# Guía de Optimización SEO - Sebastián Barrera Portfolio
 
 ## ¿Optimizaciones Implementadas
 
