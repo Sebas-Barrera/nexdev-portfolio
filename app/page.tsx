@@ -502,68 +502,68 @@ export default function Home() {
 
           <div className="space-y-20">
             {/* Proyecto 1 - ChallengeMe App */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="order-1 lg:order-1 animate-on-scroll" data-animation="fade-in-left">
-                <div className="flex items-center gap-2 mb-4 flex-wrap">
-                  <div className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">
-                    App Móvil
-                  </div>
-                  <div className="inline-flex px-3 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full items-center gap-1.5 font-medium">
-                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
-                    </svg>
-                    Techvision Team
-                  </div>
-                  <div className="inline-flex px-3 py-1 bg-green-500/10 text-green-400 text-xs rounded-full items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span>
-                    En Desarrollo
-                  </div>
+          {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="order-1 lg:order-1 animate-on-scroll" data-animation="fade-in-left">
+              <div className="flex items-center gap-2 mb-4 flex-wrap">
+                <div className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">
+                  App Móvil
                 </div>
-                <h3 className="text-3xl font-semibold text-text-primary mb-4">
-                  ChallengeMe.
-                </h3>
-                <p className="text-text-secondary mb-6 leading-relaxed">
-                  Aplicación móvil innovadora que ofrece retos con diferentes temáticas para cualquier tipo de reunión,
-                  desde pláticas profundas hasta diversión garantizada en fiestas. Desarrollada en colaboración con
-                  <span className="text-accent font-medium"> Techvision</span> como socios, esta app promete transformar
-                  la forma en que las personas interactúan y se divierten en grupos.
+                <div className="inline-flex px-3 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full items-center gap-1.5 font-medium">
+                  <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+                  </svg>
+                  Techvision Team
+                </div>
+                <div className="inline-flex px-3 py-1 bg-green-500/10 text-green-400 text-xs rounded-full items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span>
+                  En Desarrollo
+                </div>
+              </div>
+              <h3 className="text-3xl font-semibold text-text-primary mb-4">
+                ChallengeMe.
+              </h3>
+              <p className="text-text-secondary mb-6 leading-relaxed">
+                Aplicación móvil innovadora que ofrece retos con diferentes temáticas para cualquier tipo de reunión,
+                desde pláticas profundas hasta diversión garantizada en fiestas. Desarrollada en colaboración con
+                <span className="text-accent font-medium"> Techvision</span> como socios, esta app promete transformar
+                la forma en que las personas interactúan y se divierten en grupos.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-6">
+                <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">Expo</span>
+                <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">React Native</span>
+                <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">Supabase</span>
+                <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">TypeScript</span>
+              </div>
+              <div className="mb-6 p-4 bg-accent/5 border border-accent/20 rounded-xl">
+                <p className="text-sm text-text-secondary">
+                  <span className="text-accent font-medium">Disponibilidad:</span> App Store y Play Store (próximamente)
                 </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">Expo</span>
-                  <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">React Native</span>
-                  <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">Supabase</span>
-                  <span className="px-3 py-1 bg-surface border border-border text-text-primary text-xs rounded-full">TypeScript</span>
-                </div>
-                <div className="mb-6 p-4 bg-accent/5 border border-accent/20 rounded-xl">
-                  <p className="text-sm text-text-secondary">
-                    <span className="text-accent font-medium">Disponibilidad:</span> App Store y Play Store (próximamente)
-                  </p>
-                  <p className="text-sm text-text-secondary mt-1">
-                    <span className="text-accent font-medium">Mi Rol:</span> Frontend Development
-                  </p>
-                </div>
-              </div>
-
-              {/* Mockup Container - Carrusel de Móvil */}
-              <div className="order-2 lg:order-2 animate-on-scroll" data-animation="fade-in-right">
-                <MobileCarousel
-                  images={[
-                    '/muckUpMovile/CM/1.png',
-                    '/muckUpMovile/CM/2.png',
-                    '/muckUpMovile/CM/3.png',
-                    '/muckUpMovile/CM/4.png',
-                    '/muckUpMovile/CM/5.png',
-                  ]}
-                />
+                <p className="text-sm text-text-secondary mt-1">
+                  <span className="text-accent font-medium">Mi Rol:</span> Frontend Development
+                </p>
               </div>
             </div>
 
-            {/* Separador sutil entre proyectos */}
-            <div className="flex items-center gap-4 my-16">
-              <div className="flex-1 h-px bg-linear-to-r from-transparent via-border to-transparent"></div>
-              <div className="w-2 h-2 rounded-full bg-accent/50"></div>
-              <div className="flex-1 h-px bg-linear-to-r from-transparent via-border to-transparent"></div>
+            
+            <div className="order-2 lg:order-2 animate-on-scroll" data-animation="fade-in-right">
+              <MobileCarousel
+                images={[
+                  '/muckUpMovile/CM/1.png',
+                  '/muckUpMovile/CM/2.png',
+                  '/muckUpMovile/CM/3.png',
+                  '/muckUpMovile/CM/4.png',
+                  '/muckUpMovile/CM/5.png',
+                ]}
+              />
             </div>
+          </div> */}
+
+{/*           
+          <div className="flex items-center gap-4 my-16">
+            <div className="flex-1 h-px bg-linear-to-r from-transparent via-border to-transparent"></div>
+            <div className="w-2 h-2 rounded-full bg-accent/50"></div>
+            <div className="flex-1 h-px bg-linear-to-r from-transparent via-border to-transparent"></div>
+          </div> */}
 
             {/* Proyecto 2 - Gestor Visión Allende (Layout Izquierda) */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
