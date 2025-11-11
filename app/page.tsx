@@ -798,7 +798,7 @@ export default function Home() {
                 <p>
                   <span className="text-text-primary font-medium">Para proyectos individuales</span>, ofrezco mis servicios de forma independiente
                   en desarrollo web, móvil y backend. <span className="text-text-primary font-medium">Para proyectos empresariales
-                  más grandes</span>, cuento con el respaldo completo del equipo Techvision.
+                  más grandes</span>, cuento con el respaldo completo de mi equipo Techvision.
                 </p>
               </div>
             </div>
