@@ -502,7 +502,7 @@ export default function Home() {
 
           <div className="space-y-20">
             {/* Proyecto 1 - ChallengeMe App */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-1 lg:order-1 animate-on-scroll" data-animation="fade-in-left">
               <div className="flex items-center gap-2 mb-4 flex-wrap">
                 <div className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">
@@ -556,14 +556,14 @@ export default function Home() {
                 ]}
               />
             </div>
-          </div>
+          </div> */}
 
-          
+{/*           
           <div className="flex items-center gap-4 my-16">
             <div className="flex-1 h-px bg-linear-to-r from-transparent via-border to-transparent"></div>
             <div className="w-2 h-2 rounded-full bg-accent/50"></div>
             <div className="flex-1 h-px bg-linear-to-r from-transparent via-border to-transparent"></div>
-          </div>
+          </div> */}
 
             {/* Proyecto 2 - Gestor Visión Allende (Layout Izquierda) */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
